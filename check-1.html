@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4A2O22</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #000000;
+            --primary-hover: #0f0f0f;
+            --primary-light: #f5f5f5;
+            --secondary-color: #000000;
+            --secondary-hover: #000000;
+            --secondary-light: #eeeeee;
+            --text-dark: #000000;
+            --text-light: #707070;
+            --border-color: #d9d9d9;
+            --bg-light: #f8f8f8;
+            --white: #ffffff;
+            --radius: 8px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-area {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            background: transparent;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--text-dark);
+            color: var(--text-dark);
+            stroke-width: 1.75;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transition: height 0.3s ease;
+        }
+
+        .card:nth-child(2)::before {
+            background: var(--secondary-color);
+        }
+
+        .card:hover {
+            border-color: var(--border-color);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .card:hover::before {
+            height: 6px;
+        }
+
+        .card-icon {
+            margin-bottom: 16px;
+        }
+
+        .card-icon svg {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto;
+            display: block;
+            color: var(--text-dark);
+            stroke: var(--text-dark);
+            opacity: 0.75;
+            transition: opacity 0.3s ease;
+            stroke-width: 1.6;
+        }
+
+        .card:hover .card-icon svg {
+            opacity: 1;
+        }
+
+        .card:nth-child(2) .card-icon svg {
+            stroke: var(--secondary-color);
+            color: var(--secondary-color);
+            opacity: 0.8;
+        }
+
+        .card:nth-child(2):hover .card-icon svg {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            box-shadow: 0 4px 12px rgba(26, 26, 26, 0.2);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-hover);
+            box-shadow: 0 4px 12px rgba(74, 74, 74, 0.2);
+        }
+
+        .btn-secondary:active {
+            transform: scale(0.98);
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 12px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .card:nth-child(2) .badge {
+            background: var(--secondary-light);
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 640px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .card {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!--
+        <div class="header">
+            <div class="logo-area">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+                        <path d="M7 10h10"/>
+                    </svg>
+                </div>
+            </div>
+            <h1>Portal Pembayaran</h1>
+            <p>Kelola pembayaran Anda dengan mudah</p>
+            <p class="subtitle">Pilih layanan di bawah untuk melanjutkan</p>
+        </div>
+        -->
+
+        <div class="content">
+            <div class="card">
+                <!-- <div class="badge">Periksa Status</div> -->
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="10" cy="10" r="5.5"/>
+                        <path d="M14.5 14.5l4 4"/>
+                    </svg>
+                </div>
+                <h2 class="card-title">Cek Pembayaran</h2>
+                <p class="card-description">Periksa status dan riwayat pembayaran Anda secara real-time</p>
+                <a href="https://www.check-ivory-xi.my.id/" class="btn btn-primary">Periksa Sekarang</a>
+            </div>
+
+            <div class="card">
+                <!-- <div class="badge">Cicilan</div> -->
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="6" width="20" height="12" rx="1.5"/>
+                        <path d="M2 11h20"/>
+                        <circle cx="17" cy="16" r="1"/>
+                    </svg>
+                </div>
+                <h2 class="card-title">Bayar Tunggakan</h2>
+                <p class="card-description">Lunasi cicilan tunggakan dan perbarui status akun Anda</p>
+                <a href="https://www.check-late-payment.my.id/" class="btn btn-secondary">Bayar Sekarang</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 | 4A2O22.</p>
+        </div>
+    </div>
+</body>
+</html>
